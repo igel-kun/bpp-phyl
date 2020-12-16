@@ -9,7 +9,11 @@ cmake_minimum_required (VERSION 2.8.12)
 project (bpp-phyl CXX)
 
 # Compile options
-set (CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wshadow -Wconversion")
+set (CMAKE_CXX_FLAGS "-std=c++17 -Wall -Wextra -Weffc++ -Wno-unused-parameter -Wno-misleading-indentation -Werror -Wno-error=cpp -Wno-error=effc++ -Wshadow -Wno-ignored-attributes")
+
+include (CTest)
+option (BUILD_STATIC "enable static-library build" ON)
+option (BUILD_SHARED "enable shared-library build (note: currently, tests require building the shared-library)" ON)
 
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING
